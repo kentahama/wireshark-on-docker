@@ -14,3 +14,11 @@ services:
       context: .
     environment:
       - URL=ws://server:5000
+    ports:
+      - 14500:14500
+
+  wireshark:
+    image: ghcr.io/lambdalisue/wireshark
+    cap_add:
+      - NET_ADMIN
+    network_mode: service:client
