@@ -1,0 +1,16 @@
+services:
+  server:
+    pull_policy: never
+    image: server
+    build:
+      dockerfile: ./dockerfiles/server/Dockerfile
+      context: .
+
+  client:
+    pull_policy: never
+    image: client
+    build:
+      dockerfile: ./dockerfiles/client/Dockerfile
+      context: .
+    environment:
+      - URL=ws://server:5000
